@@ -1,0 +1,23 @@
+[
+  {
+    "id": "pid",
+    "name": "PID Compare",
+    "description": "P&ID diff viewer + rapporter",
+    "url": "https://pid.appfix.org",
+    "groups": ["pid"]
+  },
+  {
+    "id": "lm",
+    "name": "NotebookLM PDF Resizer",
+    "description": "Resize PDF'er til NotebookLM",
+    "url": "https://lm.appfix.org",
+    "groups": ["lm"]
+  },
+  {
+    "id": "rename",
+    "name": "Rename App",
+    "description": "Hjælpeværktøj til navngivning",
+    "url": "https://rename.appfix.org",
+    "groups": ["tools"]
+  }
+]
