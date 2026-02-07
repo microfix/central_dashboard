@@ -1,0 +1,331 @@
+.pidScope {
+  --background: #000000;
+  --foreground: #ffffff;
+  --accent-green: #4b5320;
+  --accent-brown: #4b3621;
+  --status-safe: #4b5320;
+  --status-critical: #8b0000;
+  --border-color: #333333;
+  --card-bg: #111111;
+  --text-muted: #aaaaaa;
+
+  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans);
+
+  min-height: 100vh;
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.pidScope *,
+.pidScope *::before,
+.pidScope *::after {
+  box-sizing: border-box;
+}
+
+.pidScope h1,
+.pidScope h2,
+.pidScope h3,
+.pidScope h4,
+.pidScope h5,
+.pidScope h6 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.pidScope :global(a) {
+  color: inherit;
+  text-decoration: none;
+}
+
+.pidScope :global(.container) {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.pidScope :global(.title) {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--accent-green);
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.pidScope :global(.btn) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-green);
+  color: white;
+  border: 1px solid transparent;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+.pidScope :global(.btn:hover) {
+  background-color: #3a4019;
+  border-color: #ffffff;
+}
+
+.pidScope :global(.btn-secondary) {
+  background-color: var(--accent-brown);
+}
+
+.pidScope :global(.btn-secondary:hover) {
+  background-color: #362618;
+}
+
+.pidScope :global(.card) {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 1.5rem;
+  transition: border-color 0.2s;
+}
+
+.pidScope :global(.card:hover) {
+  border-color: var(--accent-green);
+}
+
+.pidScope :global(.status-badge) {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-weight: bold;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.pidScope :global(.status-safe) {
+  background-color: var(--status-safe);
+  color: white;
+}
+
+.pidScope :global(.status-critical) {
+  background-color: var(--status-critical);
+  color: white;
+}
+
+.pidScope :global(.grid) {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.pidScope :global(.flex-between) {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pidScope :global(.text-muted) {
+  color: var(--text-muted);
+}
+
+.pidScope :global(.card-link) {
+  display: block;
+}
+
+.pidScope :global(.card-link.disabled) {
+  pointer-events: none;
+}
+
+.pidScope :global(.loader) {
+  width: 36px;
+  height: 36px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--accent-green);
+  border-radius: 50%;
+  animation: pid-spin 0.9s linear infinite;
+}
+
+@keyframes pid-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.pidScope :global(.pid-search-filter) {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1rem 0 1.5rem 0;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.5);
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.pidScope :global(.pid-search-input-wrap) {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+  max-width: 520px;
+}
+
+.pidScope :global(.pid-search-icon) {
+  position: absolute;
+  left: 0;
+  bottom: 10px;
+  color: #4b3d21;
+}
+
+.pidScope :global(.pid-search-input) {
+  appearance: none;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(75, 83, 32, 0.4);
+  padding: 0.5rem 2.5rem 0.5rem 2rem;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.pidScope :global(.pid-search-input::placeholder) {
+  color: #6b7280;
+}
+
+.pidScope :global(.pid-search-input:focus) {
+  outline: none;
+  border-bottom-color: #4b5320;
+}
+
+.pidScope :global(.pid-search-clear) {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  background: transparent;
+  border: none;
+  color: #4b3d21;
+  cursor: pointer;
+}
+
+.pidScope :global(.pid-search-clear:hover) {
+  color: #ffffff;
+}
+
+.pidScope :global(.pid-sort-wrap) {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.pidScope :global(.pid-sort-btn) {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.pidScope :global(.pid-sort-text) {
+  display: flex;
+  flex-direction: column;
+  text-align: right;
+}
+
+.pidScope :global(.pid-sort-label) {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 800;
+  color: #4b3d21;
+  margin-bottom: 2px;
+}
+
+.pidScope :global(.pid-sort-value) {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.pidScope :global(.pid-sort-btn:hover .pid-sort-value) {
+  color: #d4d4d4;
+}
+
+.pidScope :global(.pid-sort-icon) {
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+
+.pidScope :global(.pid-sort-btn:hover .pid-sort-icon) {
+  background: #111111;
+}
+
+.pidScope :global(.pid-sort-icon-svg) {
+  color: #4b5320;
+}
+
+.pidScope :global(.pid-sort-backdrop) {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+}
+
+.pidScope :global(.pid-sort-menu) {
+  position: absolute;
+  right: 0;
+  margin-top: 0.5rem;
+  width: 14rem;
+  background: #0a0a0a;
+  border: 1px solid #333333;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.pidScope :global(.pid-sort-option) {
+  width: 100%;
+  text-align: right;
+  padding: 0.75rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #71717a;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.pidScope :global(.pid-sort-option:hover) {
+  color: #ffffff;
+  background: #111111;
+}
+
+.pidScope :global(.pid-sort-option-active) {
+  color: #4b5320;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 720px) {
+  .pidScope :global(.pid-search-filter) {
+    align-items: stretch;
+  }
+
+  .pidScope :global(.pid-sort-text) {
+    text-align: left;
+  }
+}

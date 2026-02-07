@@ -1,25 +1,21 @@
 import Link from 'next/link';
 import apps from '@/data/apps.json';
-
-function hasAnyGroup(userGroups = [], required = []) {
-  const set = new Set((userGroups || []).map((g) => String(g).toLowerCase()));
-  return required.some((g) => set.has(String(g).toLowerCase()));
-}
+import { hasAnyGroup, isAdmin } from '@/lib/groups';
 
 export default function AppGrid({ session }) {
   const groups = session?.user?.groups || [];
 
   // If user is in admin group, show all
-  const isAdmin = hasAnyGroup(groups, ['admin', 'microfix-admin', 'appfix-admin']);
+  const isAdminMode = isAdmin(groups);
 
-  const visible = apps.filter((a) => isAdmin || !a.groups?.length || hasAnyGroup(groups, a.groups));
+  const visible = apps.filter((a) => isAdminMode || !a.groups?.length || hasAnyGroup(groups, a.groups));
 
   return (
     <div>
       <div className="badge">
         <span className="dot" />
         <span>
-          Du er logget ind. {isAdmin ? 'Admin-tilstand: viser alle apps.' : 'Viser kun apps du har adgang til.'}
+          Du er logget ind. {isAdminMode ? 'Admin-tilstand: viser alle apps.' : 'Viser kun apps du har adgang til.'}
         </span>
       </div>
 
