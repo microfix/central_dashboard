@@ -8,6 +8,7 @@ export function middleware(request) {
     const url = request.nextUrl.clone();
     url.hostname = 'da.appfix.org';
     url.protocol = 'https:';
+    url.port = '';
     return NextResponse.redirect(url, 307);
   }
 
