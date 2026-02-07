@@ -4,7 +4,7 @@ import { signIn, signOut } from 'next-auth/react';
 
 export function SignInButton() {
   return (
-    <button className="btn primary" onClick={() => signIn('authentik')}>
+    <button className="btn primary" onClick={() => signIn('keycloak')}>
       Log ind
     </button>
   );
