@@ -3,11 +3,17 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/auth';
 import AppGrid from '@/components/AppGrid';
 import { SignInButton, SignOutButton } from '@/components/AuthButtons';
+import { redirect } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
+
+  // Auto-login: hvis du ikke er logget ind, så send direkte ind i Authentik/OIDC flowet
+  if (!session?.user) {
+    redirect('/api/auth/signin/keycloak?callbackUrl=%2F');
+  }
 
   return (
     <main className="container">
