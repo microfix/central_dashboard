@@ -3,7 +3,7 @@
     "id": "pid",
     "name": "PID Compare",
     "description": "P&ID diff viewer + rapporter",
-    "url": "https://pidc.appfix.org",
+    "url": "https://pid.appfix.org",
     "groups": ["pid"]
   },
   {

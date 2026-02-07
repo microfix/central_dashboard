@@ -1,17 +1,8 @@
 import { NextResponse } from 'next/server';
 
-export function middleware(request) {
-  const host = request.headers.get('host') || '';
-
-  // Canonical host: pid.appfix.org skal bare lande på da.appfix.org
-  if (host.startsWith('pid.appfix.org')) {
-    const url = request.nextUrl.clone();
-    url.hostname = 'da.appfix.org';
-    url.protocol = 'https:';
-    url.port = '';
-    return NextResponse.redirect(url, 307);
-  }
-
+// (Intentionally minimal)
+// We no longer redirect pid -> da here. pid.appfix.org is used by PID Compare.
+export function middleware() {
   return NextResponse.next();
 }
 
