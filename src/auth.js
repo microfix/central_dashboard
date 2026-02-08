@@ -19,6 +19,7 @@ export const authOptions = {
   callbacks: {
     async jwt({ token, profile }) {
       if (profile) {
+        console.log('OIDC Profile:', JSON.stringify(profile));
         token.groups =
           profile.groups ||
           profile.group ||
