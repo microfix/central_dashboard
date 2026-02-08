@@ -12,6 +12,7 @@ export const authOptions = {
           clientId: process.env.AUTHENTIK_CLIENT_ID,
           clientSecret: process.env.AUTHENTIK_CLIENT_SECRET,
           issuer,
+          authorization: { params: { scope: 'openid email profile groups' } },
         }),
       ]
     : [],

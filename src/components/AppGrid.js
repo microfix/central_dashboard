@@ -16,6 +16,7 @@ export default function AppGrid({ session }) {
         <span className="dot" />
         <span>
           Du er logget ind. {isAdminMode ? 'Admin-tilstand: viser alle apps.' : 'Viser kun apps du har adgang til.'}
+          <br/>(DEBUG: Grupper: {JSON.stringify(groups)})
         </span>
       </div>
 
