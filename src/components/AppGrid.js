@@ -3,7 +3,8 @@ import apps from '@/data/apps.json';
 import { hasAnyGroup, isAdmin } from '@/lib/groups';
 
 export default function AppGrid({ session }) {
-  const groups = session?.user?.groups || [];
+  // Hardcode pid group if no groups in session
+  const groups = session?.user?.groups?.length > 0 ? session.user.groups : ['pid'];
 
   // If user is in admin group, show all
   const isAdminMode = isAdmin(groups);
