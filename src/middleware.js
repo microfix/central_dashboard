@@ -1,8 +1,14 @@
 import { NextResponse } from 'next/server';
 
-// (Intentionally minimal)
-// We no longer redirect pid -> da here. pid.appfix.org is used by PID Compare.
-export function middleware() {
+export function middleware(request) {
+  const { pathname, search } = request.nextUrl;
+
+  // Fix /pid bad gateway by routing through the working PID app domain.
+  if (pathname === '/pid' || pathname.startsWith('/pid/')) {
+    const target = `https://pid.appfix.org${pathname}${search || ''}`;
+    return NextResponse.redirect(target, 302);
+  }
+
   return NextResponse.next();
 }
 
